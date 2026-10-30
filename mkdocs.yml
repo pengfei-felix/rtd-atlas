@@ -1,0 +1,99 @@
+site_name: RTD 派工知识库
+site_description: 半导体 Fab 实时派工（RTD / APS）的区域问题档案与方法论
+site_author: Pengfei Li
+site_url: https://example.github.io/rtd-wiki/
+docs_dir: docs
+use_directory_urls: true
+
+theme:
+  name: material
+  language: zh
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切到夜间模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切到日间模式
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.tracking
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+
+nav:
+  - 首页: index.md
+  - 区域派工档案:
+      - 区域总览: zones/index.md
+      - Litho 光刻:
+          - litho/index.md
+          - 核心结论速览: litho/00-结论速览.md
+          - 八重约束结构: litho/01-八重约束.md
+          - 九类派工问题: litho/02-九类问题.md
+          - 技术谱系 L0–L5: litho/03-技术谱系.md
+          - 厂商方案横评: litho/04-厂商横评.md
+          - 指标体系: litho/05-指标体系.md
+          - 落地路线图: litho/06-落地路线图.md
+          - 选型 Checklist: litho/07-选型-checklist.md
+          - 避坑清单: litho/08-避坑清单.md
+          - 附录: litho/09-附录.md
+      - Etch 刻蚀: etch/index.md
+      - Diffusion 扩散: diffusion/index.md
+      - Implant 离子注入: implant/index.md
+      - CMP 研磨: cmp/index.md
+  - 横向方法论:
+      - 方法论总览: method/index.md
+      - 约束模型: method/constraints.md
+      - 规则库设计: method/rule-library.md
+      - RTS 与 RTD 分层: method/rts-rtd.md
+      - 指标体系: method/metrics.md
+  - 厂商与选型:
+      - 选型总览: vendor/index.md
+      - 国际阵营: vendor/international.md
+      - 国产阵营: vendor/domestic.md
+      - 差距判断: vendor/gap.md
+  - 关于: about.md
