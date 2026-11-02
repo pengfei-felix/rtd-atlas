@@ -10,7 +10,7 @@ title: 全厂派工全景
 
 </div>
 
-## 五个区的角色
+## 区域角色
 
 同一个 Fab 里，五个区在派工网络中的角色完全不同。角色决定该往哪里投优化资源。
 
@@ -65,6 +65,16 @@ title: 全厂派工全景
     <span class="badge badge--wip">骨架</span>
 
     [:octicons-arrow-right-24: 进入分幅](../cmp/index.md)
+
+-   :material-table-large:{ .lg .middle } __区域对比__
+
+    ---
+
+    五个区的约束、粒度、批量性、反馈强度横向排开，一页看完差异。
+
+    <span class="badge badge--done">已绘</span>
+
+    [:octicons-arrow-right-24: 对比表](../zones/index.md)
 
 </div>
 

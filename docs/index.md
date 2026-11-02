@@ -40,6 +40,14 @@ title: 首页
 
     [:octicons-arrow-right-24: 专题总览](topics/index.md)
 
+-   :material-format-list-bulleted-square:{ .lg .middle } __图例__
+
+    ---
+
+    全库的符号系统。约束必须归到四类资源之一，没标类型就没法做横向对照。
+
+    [:octicons-arrow-right-24: 约束四类](legend/constraint-types.md)
+
 </div>
 
 ## 图幅状态

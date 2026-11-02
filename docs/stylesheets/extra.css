@@ -14,6 +14,12 @@
 }
 
 /* --- 标题层级：二级加竖条，三级加间距 -------------------------------- */
+.md-typeset h1 {
+  color: var(--md-default-fg-color);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
 .md-typeset h2 {
   border-left: 3px solid var(--md-accent-fg-color);
   padding-left: 0.65rem;
@@ -31,7 +37,18 @@
 }
 
 /* --- 表格：圆角、表头浮起、行悬停 ------------------------------------ */
+.md-typeset__scrollwrap {
+  overflow-x: auto;
+}
+
+.md-typeset__table {
+  display: block;
+  width: 100%;
+}
+
 .md-typeset table:not([class]) {
+  display: table;
+  width: 100%;
   border-radius: 0.45rem;
   overflow: hidden;
   border: 1px solid var(--md-default-fg-color--lightest);
@@ -70,6 +87,13 @@
 
 .md-typeset .grid.cards > ul > li > hr {
   margin: 0.55em 0;
+}
+
+/* 恰好 3 项时排成一行，避免 2+1 落单（Material 用 display:contents 展开 ul，故作用于外层） */
+@media screen and (min-width: 60em) {
+  .md-typeset .grid.cards:has(> ul > li:nth-child(3):last-child) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 /* --- 状态徽章 -------------------------------------------------------- */
