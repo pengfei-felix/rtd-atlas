@@ -1,0 +1,199 @@
+/* ==========================================================================
+   RTD 派工图志 · 视觉层
+   只做增量增强，不改 Material 默认布局。深浅色模式分别适配。
+   ========================================================================== */
+
+/* --- 版心与行宽 ------------------------------------------------------- */
+.md-grid {
+  max-width: 72rem;
+}
+
+.md-typeset {
+  font-size: 0.78rem;
+  line-height: 1.72;
+}
+
+/* --- 标题层级：二级加竖条，三级加间距 -------------------------------- */
+.md-typeset h2 {
+  border-left: 3px solid var(--md-accent-fg-color);
+  padding-left: 0.65rem;
+  margin-top: 2.2em;
+  font-weight: 600;
+}
+
+.md-typeset h3 {
+  margin-top: 1.8em;
+  font-weight: 600;
+}
+
+.md-typeset h2 + h3 {
+  margin-top: 1.1em;
+}
+
+/* --- 表格：圆角、表头浮起、行悬停 ------------------------------------ */
+.md-typeset table:not([class]) {
+  border-radius: 0.45rem;
+  overflow: hidden;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  font-size: 0.74rem;
+}
+
+.md-typeset table:not([class]) thead {
+  background-color: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset table:not([class]) th {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.md-typeset table:not([class]) td:first-child,
+.md-typeset table:not([class]) th:first-child {
+  font-weight: 500;
+}
+
+.md-typeset table:not([class]) tbody tr:hover {
+  background-color: var(--md-accent-fg-color--transparent);
+}
+
+/* --- 卡片网格：悬停微抬 + 边框染色 ----------------------------------- */
+.md-typeset .grid.cards > ul > li {
+  border-radius: 0.55rem;
+  transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-2px);
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.md-typeset .grid.cards > ul > li > hr {
+  margin: 0.55em 0;
+}
+
+/* --- 状态徽章 -------------------------------------------------------- */
+.badge {
+  display: inline-block;
+  padding: 0.12em 0.6em;
+  border-radius: 999px;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  vertical-align: 0.1em;
+}
+
+.badge--done {
+  background: #e1f5ee;
+  color: #0f6e56;
+}
+
+.badge--wip {
+  background: #faeeda;
+  color: #854f0b;
+}
+
+.badge--todo {
+  background: #f1efe8;
+  color: #5f5e5a;
+}
+
+.badge--new {
+  background: #eeedfe;
+  color: #534ab7;
+}
+
+[data-md-color-scheme="slate"] .badge--done {
+  background: #04342c;
+  color: #9fe1cb;
+}
+
+[data-md-color-scheme="slate"] .badge--wip {
+  background: #412402;
+  color: #fac775;
+}
+
+[data-md-color-scheme="slate"] .badge--todo {
+  background: #2c2c2a;
+  color: #b4b2a9;
+}
+
+[data-md-color-scheme="slate"] .badge--new {
+  background: #26215c;
+  color: #cecbf6;
+}
+
+/* --- 首页 hero ------------------------------------------------------- */
+.hero {
+  padding: 1.5rem 1.6rem 1.35rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-left: 4px solid var(--md-accent-fg-color);
+  background-color: var(--md-code-bg-color);
+  margin-bottom: 1.6rem;
+}
+
+.hero h1 {
+  margin: 0 0 0.35em;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.hero p {
+  margin: 0.3em 0;
+  color: var(--md-default-fg-color--light);
+}
+
+/* --- 关键结论条：左侧粗线强调 ---------------------------------------- */
+.keyline {
+  border-left: 3px solid var(--md-primary-fg-color);
+  padding: 0.1rem 0 0.1rem 0.9rem;
+  margin: 1.2rem 0;
+  color: var(--md-default-fg-color--light);
+}
+
+.keyline strong {
+  color: var(--md-default-fg-color);
+}
+
+/* --- 数字与指标：等宽对齐 -------------------------------------------- */
+.num {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* --- 图注 ------------------------------------------------------------ */
+.figcap {
+  display: block;
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--md-default-fg-color--light);
+  margin-top: 0.4rem;
+}
+
+/* --- 提示块：收紧留白 ------------------------------------------------ */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 0.45rem;
+  font-size: 0.74rem;
+}
+
+/* --- 侧栏与导航：加一点呼吸 ------------------------------------------ */
+.md-nav__title {
+  font-weight: 600;
+}
+
+.md-tabs__link {
+  font-weight: 500;
+}
+
+/* --- 页脚 ------------------------------------------------------------ */
+.md-copyright {
+  font-size: 0.66rem;
+}
+
+/* --- 深色模式下表格边框略提亮 ---------------------------------------- */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) {
+  border-color: rgba(255, 255, 255, 0.12);
+}
