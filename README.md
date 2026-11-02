@@ -67,16 +67,16 @@ python -m venv .venv
 
 1. **建仓库**：名字用 `rtd-atlas`，可见性选 **Public**（私有仓库发布 Pages 需要 Pro）。
 2. **改 site_url**：把 `mkdocs.yml` 里的 `site_url` 换成你的实际地址
-   `https://<你的GitHub用户名>.github.io/rtd-atlas/`
+   `https://pengfei-felix.github.io/rtd-atlas/`
 3. **推送**（仓库已初始化，只需接远端）：
 
    ```bash
-   git remote add origin https://github.com/<你的用户名>/rtd-atlas.git
+   git remote add origin https://github.com/pengfei-felix/rtd-atlas.git
    git push -u origin main
    ```
 
 4. **开 Pages**：仓库 Settings → Pages → Source 选 **GitHub Actions**（不是 Deploy from a branch）。
-5. 推完等 Actions 跑完，访问 `https://<用户名>.github.io/rtd-atlas/`。
+5. 推完等 Actions 跑完，访问 `https://pengfei-felix.github.io/rtd-atlas/`。
 
 之后每次 `git push` 到 main 自动重新发布。
 

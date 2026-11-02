@@ -1,9 +1,14 @@
 site_name: RTD 派工图志
 site_description: 半导体 Fab 实时派工（RTD / APS）的区域派工档案 —— 多区域，一套体例
 site_author: Pengfei Li
-site_url: https://example.github.io/rtd-atlas/
+site_url: https://pengfei-felix.github.io/rtd-atlas/
 docs_dir: docs
 use_directory_urls: true
+
+# 右上角 GitHub 图标 + 每页「编辑此页」，指向 main 分支
+repo_url: https://github.com/pengfei-felix/rtd-atlas
+repo_name: pengfei-felix/rtd-atlas
+edit_uri: edit/main/docs/
 
 theme:
   name: material
