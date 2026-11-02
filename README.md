@@ -68,13 +68,9 @@ python -m venv .venv
 1. **建仓库**：名字用 `rtd-atlas`，可见性选 **Public**（私有仓库发布 Pages 需要 Pro）。
 2. **改 site_url**：把 `mkdocs.yml` 里的 `site_url` 换成你的实际地址
    `https://<你的GitHub用户名>.github.io/rtd-atlas/`
-3. **推送**：
+3. **推送**（仓库已初始化，只需接远端）：
 
    ```bash
-   git init
-   git add .
-   git commit -m "init: RTD 派工图志"
-   git branch -M main
    git remote add origin https://github.com/<你的用户名>/rtd-atlas.git
    git push -u origin main
    ```
