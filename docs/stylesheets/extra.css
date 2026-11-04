@@ -67,6 +67,7 @@
 .md-typeset table:not([class]) td:first-child,
 .md-typeset table:not([class]) th:first-child {
   font-weight: 500;
+  min-width: 7rem;
 }
 
 .md-typeset table:not([class]) tbody tr:hover {

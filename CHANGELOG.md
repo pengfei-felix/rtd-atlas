@@ -2,6 +2,15 @@
 
 ## 2026-11-05
 
+### 八个区首页按新模板铺开
+
+- Etch / Diffusion / Implant / TF / CMP / Clean / Metrology / Sorter 八个区首页统一成三块结构：`1 工艺与工序流`（工艺内容 / 工序 / 派工特点 / 上下游）、`2 专有派工功能`、`3 指标与落地`。
+- 区域功能按来源清单重新归位：Multi-Chamber&Etch → Etch（6）；Wet&Diffusion 拆成 Diffusion（11）+ Clean（5）；Implanter → Implant（3）；Measurement → Metrology（5）；Sorter（4）+ WhereNext（4）；CMP（3）；TF 仅 Recipe Group（1，与 Implant 共用）。区域规则 53 条全部落位，无遗漏、无重复列。
+- 每条功能的「解决什么问题」列回指本区工艺块的派工特点名；对不上号的显式标注（如 `Domapath` 记为数据约束），不为整齐硬凑一个特点。
+- 三处清单覆盖不足写在页面上：Implant 只有 3 条、TF 只有 1 条、WhereNext 属全厂搬送去向。前两处加 note 说明是**清单缺口**而非漏写，避免以后被当成排版错误删掉。
+- `extra.css`：表格首列加 `min-width: 7rem`，避免中文短语被挤成「前后 Q-time 双 / 窗」这种断词；Diffusion、Sorter、Metrology 三条过长标签同步缩短（温区切换 / 合批即锁定 / 缺陷检测另算）。
+- **校验**：`mkdocs build --strict` 通过；脚本核对九区首页均为 3 个 H2 + 4 个 H3、顺序一致；全库 86 页链接与锚点无断链；1280 宽深色截图抽查 Diffusion 与 TF。
+
 ### Litho 区首页改为新模板（样板区）
 
 - 区首页从 22 行的子页目录改成三块固定结构：`1 工艺与工序流`（下辖 工艺内容 / 工序 / 派工特点 / 上下游 四个 H3）、`2 专有派工功能`（12 项四列表）、`3 指标与落地`（指标、路线、避坑、附录入口）。
