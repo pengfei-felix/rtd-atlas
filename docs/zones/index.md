@@ -30,8 +30,8 @@ title: 区域总览
 
 ## 各区档案
 
-- [Litho 光刻](../litho/index.md) — 已完成，含八重约束、九类问题、厂商横评
-- [Etch 刻蚀](../etch/index.md) — 骨架
-- [Diffusion 扩散](../diffusion/index.md) — 骨架
-- [Implant 离子注入](../implant/index.md) — 骨架
-- [CMP 研磨](../cmp/index.md) — 骨架
+- [Litho 光刻](../litho/index.md) — 已完成，含八重约束、九类问题、技术谱系、指标与路线图
+- [Etch 刻蚀](../etch/index.md) — 已完成，含 chamber 级约束、PM/seasoning、Q-time 后窗
+- [Diffusion 扩散](../diffusion/index.md) — 已完成，含组炉策略、温区切换、Boat/Quartzware 约束
+- [Implant 离子注入](../implant/index.md) — 已完成，含 setup family、污染隔离、束流整定、Q-time 后窗
+- [CMP 研磨](../cmp/index.md) — 已完成，含 Pad 退化、Run-to-Run 反馈、post-CMP 接续

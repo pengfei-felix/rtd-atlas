@@ -31,9 +31,6 @@ jobs:
       - name: Build site
         run: mkdocs build --strict
 
-      # 注意：Pages 必须在仓库 Settings → Pages → Source 选 "GitHub Actions" 手动启用一次。
-      # 不能用 configure-pages 的 enablement: true 自动启用 —— GITHUB_TOKEN 无权创建
-      # Pages 站点，会报 "Resource not accessible by integration"。
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

@@ -1,14 +1,9 @@
 site_name: RTD 派工图志
 site_description: 半导体 Fab 实时派工（RTD / APS）的区域派工档案 —— 多区域，一套体例
 site_author: Pengfei Li
-site_url: https://pengfei-felix.github.io/rtd-atlas/
+site_url: https://example.github.io/rtd-atlas/
 docs_dir: docs
 use_directory_urls: true
-
-# 右上角 GitHub 图标 + 每页「编辑此页」，指向 main 分支
-repo_url: https://github.com/pengfei-felix/rtd-atlas
-repo_name: pengfei-felix/rtd-atlas
-edit_uri: edit/main/docs/
 
 theme:
   name: material
@@ -91,34 +86,77 @@ nav:
           - 八重约束结构: litho/01-八重约束.md
           - 九类派工问题: litho/02-九类问题.md
           - 技术谱系 L0–L5: litho/03-技术谱系.md
-          - 厂商方案横评: litho/04-厂商横评.md
           - 指标体系: litho/05-指标体系.md
           - 落地路线图: litho/06-落地路线图.md
-          - 选型 Checklist: litho/07-选型-checklist.md
           - 避坑清单: litho/08-避坑清单.md
           - 附录: litho/09-附录.md
-      - Etch 刻蚀: etch/index.md
-      - Diffusion 扩散: diffusion/index.md
-      - Implant 离子注入: implant/index.md
-      - CMP 研磨: cmp/index.md
+      - Etch 刻蚀:
+          - etch/index.md
+          - Chamber 级建模: etch/01-chamber级建模.md
+          - PM/Clean/Seasoning: etch/02-PM-clean-seasoning.md
+          - Recipe Family 与污染序列: etch/03-recipe-family与污染序列.md
+          - Rework 与 Q-time 后窗: etch/04-rework与Qtime后窗.md
+          - 避坑清单: etch/05-避坑清单.md
+      - Diffusion 扩散:
+          - diffusion/index.md
+          - 组炉与 SRB: diffusion/01-组炉与SRB.md
+          - Q-time 与温区 Campaign: diffusion/02-Qtime与温区.md
+          - Boat 与出炉波峰: diffusion/03-Boat与出炉波峰.md
+          - 避坑清单: diffusion/04-避坑清单.md
+      - Implant 离子注入:
+          - implant/index.md
+          - Setup Family: implant/01-setup-family.md
+          - 污染隔离与高能力机: implant/02-污染隔离与高能力机.md
+          - 注入后窗口与避坑: implant/03-注入后窗口与避坑.md
+      - CMP 研磨:
+          - cmp/index.md
+          - Pad 与 R2R: cmp/01-pad与R2R.md
+          - Post-CMP 与污染隔离: cmp/02-postCMP与污染隔离.md
   - 跨幅专题:
       - 专题总览: topics/index.md
-      - Q-time 走廊: topics/qtime-corridor.md
+      - Q-time 走廊:
+          - topics/qtime-corridor.md
+          - 窗口建模: topics/qtime/01-窗口建模.md
+          - 入口限流与下游预约: topics/qtime/02-入口限流与下游预约.md
+          - 违规归因与回放: topics/qtime/03-违规归因与回放.md
       - 辅助资源流转: topics/support-resource.md
       - 重入流路径: topics/reentrant-flow.md
       - 指标冲突链: topics/metric-conflict.md
+      - AMHS/MCS 联动:
+          - topics/amhs-mcs-coupling.md
+          - ETA 与 Pre-position: topics/amhs-mcs/01-ETA与预搬送.md
+          - Port 与 Stocker: topics/amhs-mcs/02-port与stocker.md
+          - 搬送优先级冲突: topics/amhs-mcs/03-搬送优先级冲突.md
   - 图例:
       - 约束四类: legend/constraint-types.md
       - 术语表: legend/glossary.md
+      - 参考来源: legend/sources.md
   - 方法论:
       - 方法论总览: method/index.md
+      - 症状诊断手册: method/symptom-playbook.md
       - 约束模型: method/constraints.md
+      - APS 与投料控制:
+          - method/release-control.md
+          - Little 与 Critical WIP: method/release-control-deep/01-Little与CriticalWIP.md
+          - CONWIP/CONLOAD/LCONWIP: method/release-control-deep/02-CONWIP-CONLOAD-LCONWIP.md
+          - Release 与 RTD 联动: method/release-control-deep/03-release与RTD联动.md
+      - APS/RTS/RTD 闭环: method/aps-rts-rtd-loop.md
       - 规则库设计: method/rule-library.md
+      - 求解器与算法选型: method/solver-playbook.md
+      - 仿真与历史回放:
+          - method/simulation-replay.md
+          - 事件流模型: method/simulation-replay-deep/01-事件流模型.md
+          - Shadow Mode: method/simulation-replay-deep/02-shadow-mode.md
+          - 规则 A/B 与上线门槛: method/simulation-replay-deep/03-规则AB与上线门槛.md
+      - 系统架构与接口: method/system-architecture.md
       - RTS 与 RTD 分层: method/rts-rtd.md
       - 指标体系: method/metrics.md
-  - 厂商选型:
-      - 选型总览: vendor/index.md
-      - 国际阵营: vendor/international.md
-      - 国产阵营: vendor/domestic.md
-      - 差距判断: vendor/gap.md
+      - 数据模型: method/data-model.md
+  - 样例:
+      - 样例总览: examples/index.md
+      - Lot 状态样例: examples/sample-lot-state.md
+      - 派工决策日志样例: examples/sample-dispatch-decision.md
+      - 规则命中日志样例: examples/sample-rule-hit-log.md
+      - Q-time 窗口样例: examples/sample-qtime-window.md
+      - 历史回放案例: examples/sample-replay-case.md
   - 关于: about.md

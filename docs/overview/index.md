@@ -32,7 +32,7 @@ title: 全厂派工全景
 
     **粒度最细的区。** 决策对象是 chamber 而不是 tool，一台 cluster tool 内的多个腔体各有资质、PM 记录与 seasoning 阶段。
 
-    <span class="badge badge--wip">骨架</span>
+    <span class="badge badge--done">已绘</span>
 
     [:octicons-arrow-right-24: 进入分幅](../etch/index.md)
 
@@ -42,7 +42,7 @@ title: 全厂派工全景
 
     **唯一强批量的区。** 核心决策不是"哪个 Lot 上哪台机"，而是"哪些 Lot 拼成一炉"。组炉做错，代价是数小时的炉管时间被浪费。
 
-    <span class="badge badge--wip">骨架</span>
+    <span class="badge badge--done">已绘</span>
 
     [:octicons-arrow-right-24: 进入分幅](../diffusion/index.md)
 
@@ -52,7 +52,7 @@ title: 全厂派工全景
 
     **换线成本主导的区。** 气体、能量、剂量三维切换，单次 setup 可能超过一批的加工时间。优化目标从"减少空转"变成"减少切换"。
 
-    <span class="badge badge--wip">骨架</span>
+    <span class="badge badge--done">已绘</span>
 
     [:octicons-arrow-right-24: 进入分幅](../implant/index.md)
 
@@ -62,7 +62,7 @@ title: 全厂派工全景
 
     **唯一强闭环的区。** 上一批的厚度量测决定下一批的加工参数，研磨垫又是连续退化资源。派工与工艺控制不能分开算。
 
-    <span class="badge badge--wip">骨架</span>
+    <span class="badge badge--done">已绘</span>
 
     [:octicons-arrow-right-24: 进入分幅](../cmp/index.md)
 
