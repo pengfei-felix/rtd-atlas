@@ -80,6 +80,7 @@ nav:
       - 瓶颈判定: overview/bottleneck.md
   - 区域分幅:
       - 区域对比: zones/index.md
+      - 工艺基础: zones/process-basics.md
       - Litho 光刻:
           - litho/index.md
           - 核心结论速览: litho/00-结论速览.md
@@ -108,10 +109,30 @@ nav:
           - Setup Family: implant/01-setup-family.md
           - 污染隔离与高能力机: implant/02-污染隔离与高能力机.md
           - 注入后窗口与避坑: implant/03-注入后窗口与避坑.md
+      - TF 薄膜:
+          - tf/index.md
+          - Dedication 与靶材寿命: tf/01-dedication与靶材.md
+          - 膜厚反馈与返工回路: tf/02-膜厚反馈与返工.md
       - CMP 研磨:
           - cmp/index.md
           - Pad 与 R2R: cmp/01-pad与R2R.md
           - Post-CMP 与污染隔离: cmp/02-postCMP与污染隔离.md
+      - Clean / Wet 清洗:
+          - clean/index.md
+          - Bath 寿命与批式合流: clean/01-bath寿命与合流.md
+          - Q-time 走廊的起点: clean/02-走廊起点.md
+      - Metrology 量测:
+          - metrology/index.md
+          - 采样规则与产能陷阱: metrology/01-采样与产能陷阱.md
+      - Sorter / Stocker:
+          - sorter/index.md
+          - 载具池与污染分区: sorter/01-载具池与污染分区.md
+  - 通用规则:
+      - 通用层总览: common/index.md
+      - G1 优先级与排序: common/01-priority.md
+      - G2 时间窗走廊: common/02-qtime-corridor.md
+      - G3 资源与污染: common/03-resource-contamination.md
+      - G4 稳定性治理: common/04-stability.md
   - 跨幅专题:
       - 专题总览: topics/index.md
       - Q-time 走廊:

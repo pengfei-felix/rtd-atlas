@@ -13,43 +13,56 @@ RTD 派工图志按“地图集”的方式组织内容：
 | 层级 | 作用 | 已有内容 |
 |---|---|---|
 | 总图 | 看全厂派工关系和瓶颈逻辑 | 全厂派工全景、瓶颈判定 |
-| 区域分幅 | 拆每个工艺区的约束结构 | Litho、Etch、Diffusion、Implant、CMP |
+| 区域分幅 | 拆每个工艺区的约束结构 | Litho、Etch、Diffusion、Implant、TF、CMP、Clean/Wet、Metrology、Sorter |
+| 通用规则 | 跨区规则的仲裁层，与区域层正交 | G1 优先级与排序、G2 时间窗走廊、G3 资源与污染、G4 稳定性治理 |
 | 跨幅专题 | 讲跨区流动与冲突 | Q-time 走廊、辅助资源流转、重入流、指标冲突、AMHS/MCS 联动 |
 | 方法论 | 沉淀可复用工程闭环 | 症状诊断、约束模型、APS/投料、APS/RTS/RTD、规则库、求解器、仿真回放、系统架构、指标体系、数据模型 |
 | 样例 | 给字段和日志一个可复用参照 | Lot 状态、派工日志、规则命中、Q-time 窗口、回放案例 |
 
 核心立场：**RTD 的难点不只是排序算法，而是约束建模、辅助资源同步、规则治理和现场异常闭环。**
 
-## 当前状态
+## 当前版本
 
-| 图幅 | 状态 | 说明 |
+全站按页维护版本号，语义见首页「图幅与版本」：`1.0` 内容完整可照做，`1.x` 补案例修错，`2.0` 结构性重写。
+
+| 图幅 | 版本 | 说明 |
 |---|---|---|
-| Litho 光刻 | 已完成 | 10 页完整拆解：八重约束、九类问题、技术谱系、指标、路线图 |
-| Etch 刻蚀 | 已绘 | chamber 级派工、PM/clean/seasoning、Q-time 后窗 |
-| Diffusion 扩散 | 已绘 | 组炉策略、温区切换、Boat / Quartzware、前后 Q-time |
-| Q-time 走廊 | 已绘 | 入口限流、黄色预警、下游预约、违规归因 |
-| 辅助资源流转 | 已绘 | 资源类型、位置、寿命、锁定、APS/RTD/AMHS/MES 边界 |
-| 重入流路径 | 已绘 | 回流预测、层间配平、负荷换算 |
-| 指标冲突链 | 已绘 | 指标口径、基线实验、验收写法 |
-| AMHS/MCS 联动 | 已绘 | ETA、port、stocker、pre-position、双资源同步 |
-| Implant 注入 | 已绘 | setup family、污染隔离、束流整定、注入后 Q-time |
-| CMP 研磨 | 已绘 | Pad 退化、R2R 反馈、post-CMP 接续 |
-| RTD/APS 方法论 2.0 | 已绘 | APS/投料、三层闭环、求解器、仿真回放、系统接口、样例日志 |
-| 深化专题 | 已绘 | Diffusion、Etch、Implant、CMP、Q-time、AMHS/MCS、APS 投料、仿真回放均已拆分深度页 |
+| Litho 光刻 | 1.0 | 8 页完整拆解：八重约束、九类问题、技术谱系、指标、路线图 |
+| Etch 刻蚀 | 1.0 | chamber 级派工、PM/clean/seasoning、Q-time 后窗 |
+| Diffusion 扩散 | 1.0 | 组炉策略、温区切换、Boat / Quartzware、前后 Q-time |
+| Q-time 走廊 | 1.0 | 入口限流、黄色预警、下游预约、违规归因 |
+| 辅助资源流转 | 1.0 | 资源类型、位置、寿命、锁定、APS/RTD/AMHS/MES 边界 |
+| 重入流路径 | 1.0 | 回流预测、层间配平、负荷换算 |
+| 指标冲突链 | 1.0 | 指标口径、基线实验、验收写法 |
+| AMHS/MCS 联动 | 1.0 | ETA、port、stocker、pre-position、双资源同步 |
+| Implant 注入 | 1.0 | setup family、污染隔离、束流整定、注入后 Q-time |
+| CMP 研磨 | 1.0 | Pad 退化、R2R 反馈、post-CMP 接续 |
+| TF 薄膜 | 0.1 | Chamber dedication、靶材分段、膜厚与应力反馈、返工回路 |
+| Clean / Wet 清洗 | 0.1 | Bath 退化、批式合流、Q-time 走廊起点、出口限流 |
+| Metrology 量测 | 0.1 | 采样规则、recipe 时长陷阱、数据紧急度、缺陷检测 |
+| Sorter / Stocker | 0.1 | 载具池、污染分区、slot/port、8 寸状态可见性 |
+| 通用规则层 | 0.1 | 准入标准、P0–P4 仲裁序列、四个子模块、落地节奏 |
+| RTD/APS 方法论 | 1.0 | APS/投料、三层闭环、求解器、仿真回放、系统接口、样例日志 |
+| 深化专题 | 1.0 | Diffusion、Etch、Implant、CMP、Q-time、AMHS/MCS、APS 投料、仿真回放均已拆分深度页 |
 
 ## 目录结构
 
 ```text
 docs/                         唯一编辑源，日常只改这里
-├── index.md                  首页：门户页、图幅状态、阅读路径
+├── index.md                  首页：门户页、图幅与版本、阅读路径
 ├── about.md                  关于项目与内容边界
 ├── overview/                 总图层：全厂派工全景、瓶颈判定
-├── zones/                    区域总览：五区横向对比
-├── litho/                    Litho 光刻，已完成 10 页
+├── zones/                    区域总览：九区速查、三组粒度、各区档案
+├── litho/                    Litho 光刻，已绘 8 页
 ├── etch/                     Etch 刻蚀，已绘
 ├── diffusion/                Diffusion 扩散，已绘
 ├── implant/                  Implant 离子注入，已绘
+├── tf/                       TF 薄膜，骨架 0.1
 ├── cmp/                      CMP 研磨，已绘
+├── clean/                    Clean / Wet 清洗，骨架 0.1
+├── metrology/                Metrology 量测，骨架 0.1
+├── sorter/                   Sorter / Stocker，骨架 0.1
+├── common/                   通用规则层：G1 优先级、G2 时间窗、G3 资源污染、G4 稳定性
 ├── topics/                   跨幅专题：Q-time、辅助资源、重入流、指标冲突、AMHS/MCS
 ├── legend/                   图例层：约束四类、术语表、参考来源
 ├── method/                   横向方法论：症状、约束、APS、规则库、求解器、仿真、架构、指标、数据
@@ -239,8 +252,9 @@ http://127.0.0.1:8000/rtd-atlas/
 ## 维护约定
 
 - **新增页面**：先建 `docs/<section>/<page>.md`，再到 `mkdocs.yml` 的 `nav` 增加导航。
-- **新增区域**：建 `docs/<zone>/index.md`，并同步更新 `docs/zones/index.md` 与首页状态表。
-- **状态变更**：页面从骨架变成已绘时，同步改 `docs/index.md`、相关总览页和徽章。
+- **新增区域**：建 `docs/<zone>/index.md`，并同步更新 `docs/zones/index.md`、`docs/zones/process-basics.md`、`docs/overview/index.md` 决策空间表、首页版本表与 `mkdocs.yml` 导航。五处少一处就会断层。
+- **新增通用规则**：先判断是否满足通用层准入标准（作用对象跨两个区以上），满足才放 `docs/common/`，否则留在区域层。
+- **版本变更**：页面内容有实质更新时升版本号——补案例、修错、补来源升 `1.x`，结构性重写升 `2.0`；同步改 `docs/index.md` 版本列与相关总览页徽章，并在 `CHANGELOG.md` 记一条。只改错别字和排版不升版本。
 - **中文搜索**：依赖 `jieba` 分词，已在 `requirements.txt` 中配置。
 - **链接检查**：任何提交前跑 `mkdocs build --strict`。
 - **外部资料**：只用公开资料，涉及商业方案时尽量抽象成工程问题，不写广告口径。

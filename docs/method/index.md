@@ -10,6 +10,7 @@ title: 横向方法论
 |---|---|
 | [症状诊断手册](symptom-playbook.md) | 从机台空转、Q-time 超时、Hot Lot 雪崩等现场症状反推约束和规则 |
 | [约束模型](constraints.md) | 把一个区的现场约束翻译成可计算的资源集合与目标函数 |
+| [通用规则层](../common/index.md) | 哪些规则该跨区统一，区域规则和通用规则冲突时怎么仲裁 |
 | [APS 与投料控制](release-control.md) | 用 WIP cap、CONWIP/CONLOAD、瓶颈 buffer 把 RTD 放回全厂控制闭环 |
 | [APS / RTS / RTD 闭环](aps-rts-rtd-loop.md) | 三层时间尺度如何分工，RTD 何时覆盖计划、如何回灌偏差 |
 | [规则库设计](rule-library.md) | 规则越加越多、互相打架，怎么控制 |
