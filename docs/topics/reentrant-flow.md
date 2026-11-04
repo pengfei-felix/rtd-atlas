@@ -156,4 +156,4 @@ Litho out → Etch in → Clean → Metrology → 下一层 Litho
 
 ---
 
-相关：[全厂派工全景](../overview/index.md) · [辅助资源流转](support-resource.md) · [Q-time 走廊](qtime-corridor.md) · [瓶颈判定](../overview/bottleneck.md)
+相关：[区域总览](../zones/index.md) · [辅助资源流转](support-resource.md) · [Q-time 走廊](qtime-corridor.md) · [瓶颈判定](../zones/bottleneck.md)

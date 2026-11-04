@@ -6,26 +6,9 @@ title: 区域总览
 
 <div class="keyline" markdown>
 
-**九个区，三套决策粒度，两类资源结构。** 不能拿一套派工逻辑套全场——这是本文档集的核心立场。
+**九个区，三套决策粒度，两类资源结构。** 先用九区速查对齐口径，再看每个区在派工网络里扛的是什么角色——角色决定该往哪儿投优化资源。
 
 </div>
-
-## 为什么是九个
-
-划分依据不是「Fab 里有哪些工艺」，是**约束签名是否同构**。同构的可以共用一套规则骨架，不同构的必须拆开。用五个问题筛：
-
-1. 决策粒度是 Lot、chamber、batch 还是 carrier？
-2. 有没有独占辅助资源？Reticle / Pod / Pad / Boat / Bath / Target / Carrier
-3. setup 是序列相关还是固定代价？
-4. Q-time 窗口几段、嵌套几层？
-5. 有没有 run-to-run 闭环？
-
-按这五条筛完是九个区。多于九个是拆过细（管理成本高），少于九个是拆过粗（规则会串味）。
-
-!!! note "关于 Multichamber"
-    **Multichamber 不是区域，是「决策粒度」维度的一个取值。**
-
-    它决定的是"Lot 上 tool 还是上 chamber"，挂在 Etch / TF / Implant 这些 cluster tool 下面。把它当成区会重复计数，且会让规则库出现两套 chamber 逻辑。
 
 ## 九区速查
 
@@ -41,65 +24,127 @@ title: 区域总览
 | [Metrology 量测](../metrology/index.md) | Lot → Tool | 校准片 / 标准片 | 单片 | 中 | 弱（但产数据） |
 | [Sorter / Stocker](../sorter/index.md) | **Carrier** → Slot | **载具** | 不适用 | 低 | 无 |
 
-## 按粒度分三组
+## 区域角色
 
-粒度是划分 rule set 的第一依据，比工艺相似性更根本。同一组内的区，规则骨架可以共用大半。
+同一个 Fab 里，九个区在派工网络中的角色完全不同。同样是「优化这个区」，该投的东西并不一样。
 
-| 组 | 成员 | 可共用 | 必须各配 |
-|---|---|---|---|
-| **A · 单片 / 机台级** | Litho、CMP、Metrology、Sorter | 排序骨架、辅助资源锁定、老化升权 | Litho 的 Reticle 约束、CMP 的闭环、Metrology 的数据紧急度、Sorter 的载具池 |
-| **B · 单片 / 腔体级** | Etch、TF | chamber 状态建模、matching 分组、seasoning 逻辑 | Etch 的污染序列、TF 的靶材退化 |
-| **C · 强批量** | Diffusion、Implant、Clean | 组批 / 合流框架、装载率 vs 走廊余量的权衡 | Diffusion 的升降温曲线、Implant 的 setup family、Clean 的 bath 分段 |
+<div class="grid cards" markdown>
 
-**A 组最容易做错的是把 Sorter 当成物流附件。** 它的粒度是 carrier，不是 lot，混进去会让整个 A 组的模型口径不统一。
+-   :material-image-filter-center-focus:{ .lg .middle } __Litho 光刻__
 
-**C 组三个区的批量逻辑不同：**
+    ---
 
-| 区 | 组批目的 | 欠载代价 |
-|---|---|---|
-| Diffusion | 填满炉管，摊薄长周期 | **高**，浪费数小时炉时 |
-| Implant | 减少换气换能量次数 | 中，主要是效率损失 |
-| Clean | 提高槽体利用率 | **低**，可以欠载出发 |
+    **派工角色：物流配送中心。** 单片要反复返回 18~40 次，队列来自全厂所有层、所有产品。同时要解 `Lot → 机台`、`Reticle/Pod → 机台`、`机台 → 温层状态` 三个耦合方程。
 
-最后一行是关键区别：清洗槽装不满可以走，炉管装不满是实打实的浪费。把三者用同一套组批规则，清洗区会被迫等批，走廊直接断。
+    **工艺：** 涂胶 → 曝光 → 显影，把 Reticle 上的图形转印到光刻胶上。这层胶就是下一道刻蚀或注入的掩膜。
 
-## 读一个区的方法
+    <span class="badge badge--done">1.0</span>
 
-不管是哪个区，都按同一个顺序拆，**顺序不能乱**：
+    [:octicons-arrow-right-24: 进入分幅](../litho/index.md)<br>
+    [:octicons-arrow-right-24: 工艺基础](../basics/index.md#litho)
 
-1. **先数辅助资源**。除了机台，还有什么东西是「同一时刻只能被一处使用」的？Litho 是 Reticle/Pod，CMP 是 Pad，Clean 是 Bath，Sorter 是载具。这一层最容易被漏，也最容易造成「计划可行、现场做不到」。
-2. **再定决策粒度**。Lot 级、chamber 级、batch 级还是 carrier 级？粒度错了，后面所有优化都白做。
-3. **然后区分 setup 的两类**。序列相关（换线顺序有讲究）vs 固定（换一次就是固定代价），两者在优化里的处理方式完全不同。
-4. **最后看 Q-time 的嵌套层数**。单窗口好处理，多窗口串联会互相锁死。
-5. **闭环反馈单独建模**。CMP 这种「上一批结果决定下一批参数」的，派工和工艺控制不能分开算。
+-   :material-layers-triple:{ .lg .middle } __Etch 刻蚀__
 
-## 各区档案
+    ---
 
-不熟悉工艺的，先看 [区域工艺基础](process-basics.md)：九个区在晶圆上各做什么、为什么这些动作会变成派工约束。
+    **派工角色：粒度最细的区。** 决策对象是 chamber 而不是 tool，一台 cluster tool 内的多个腔体各有资质、PM 记录与 seasoning 阶段。
 
-**核心五区（内容完整 1.0）**
+    **工艺：** 用等离子体把没被光刻胶保护的薄膜刻掉，图形真正落到晶圆上。刻不足短路，刻过度伤底层。
 
-- [Litho 光刻](../litho/index.md) — 八重约束、九类问题、技术谱系、指标与路线图
-- [Etch 刻蚀](../etch/index.md) — chamber 级约束、PM/seasoning、Q-time 后窗
-- [Diffusion 扩散](../diffusion/index.md) — 组炉策略、温区切换、Boat/Quartzware 约束
-- [Implant 离子注入](../implant/index.md) — setup family、污染隔离、束流整定、Q-time 后窗
-- [CMP 研磨](../cmp/index.md) — Pad 退化、Run-to-Run 反馈、post-CMP 接续
+    <span class="badge badge--done">1.0</span>
 
-**补齐四区（骨架 0.1，结构与规则骨架已成形）**
+    [:octicons-arrow-right-24: 进入分幅](../etch/index.md)<br>
+    [:octicons-arrow-right-24: 工艺基础](../basics/index.md#etch)
 
-- [TF 薄膜](../tf/index.md) — chamber dedication、靶材寿命分段、膜厚与应力反馈、返工回路
-- [Clean / Wet 清洗](../clean/index.md) — bath 退化、批式合流、Q-time 走廊起点、出口限流
-- [Metrology 量测](../metrology/index.md) — 采样规则、recipe 时长陷阱、数据紧急度、缺陷检测
-- [Sorter / Stocker](../sorter/index.md) — 载具池、污染分区、slot/port、8 寸状态可见性
+-   :material-thermometer:{ .lg .middle } __Diffusion 扩散__
 
-## 九个区共用一层地基
+    ---
 
-九个区不是从零写起。**它们都加载同一层基础规则**——优先级继承、老化升权、setup 损失、下游可接性、冻结期——逻辑一样，只有参数不同。这层在 [通用规则层](../common/index.md)（G1 优先级与排序 / G2 时间窗走廊 / G3 资源与污染 / G4 稳定性治理）。
+    **派工角色：批量代价最高的区。** 核心决策不是"哪个 Lot 上哪台机"，而是"哪些 Lot 拼成一炉"。组炉做错，代价是数小时的炉管时间被浪费。
 
-换句话说：区域档案里写的是**这个区比别的区多管什么**（Reticle 双锁、组炉、pad 退化、bath 寿命、载具池），而不是"这个区的派工逻辑长什么样"。基础那部分不重复写，改了也只改通用层一处。
+    **工艺：** 高温炉管里做氧化、扩散、退火，以及 LPCVD 薄膜沉积；也有单片的快速热处理。
 
-所以「每个区都对、全厂还是不对」这类问题，多半不在区里，而在通用层的仲裁序列上。
+    <span class="badge badge--done">1.0</span>
 
----
+    [:octicons-arrow-right-24: 进入分幅](../diffusion/index.md)<br>
+    [:octicons-arrow-right-24: 工艺基础](../basics/index.md#diffusion)
 
-相关：[全厂派工全景](../overview/index.md) · [通用规则层](../common/index.md) · [约束四类](../legend/constraint-types.md)
+-   :material-atom:{ .lg .middle } __Implant 离子注入__
+
+    ---
+
+    **派工角色：换线成本主导的区。** 气体、能量、剂量三维切换，单次 setup 可能超过一批的加工时间。优化目标从"减少空转"变成"减少切换"。
+
+    **工艺：** 把硼、磷、砷等离子加速打进硅片表面，改变导电类型和电阻率。阱、源漏、阈值调整都靠它。
+
+    <span class="badge badge--done">1.0</span>
+
+    [:octicons-arrow-right-24: 进入分幅](../implant/index.md)<br>
+    [:octicons-arrow-right-24: 工艺基础](../basics/index.md#implant)
+
+-   :material-layers-plus:{ .lg .middle } __TF 薄膜__
+
+    ---
+
+    **派工角色：增材区，"长多少"比"谁来做"更重要。** 决策粒度是腔体，靶材是消耗型资源，末期直接影响膜厚和颗粒。关键层 dedication 很强。
+
+    **工艺：** PVD、CVD、ALD 在晶圆表面长金属或介质膜。导电层、阻挡层、绝缘层、硬掩膜都从这里来。
+
+    <span class="badge badge--wip">0.1</span>
+
+    [:octicons-arrow-right-24: 进入分幅](../tf/index.md)<br>
+    [:octicons-arrow-right-24: 工艺基础](../basics/index.md#tf)
+
+-   :material-circle-half-full:{ .lg .middle } __CMP 研磨__
+
+    ---
+
+    **派工角色：唯一强闭环的区。** 上一批的厚度量测决定下一批的加工参数，研磨垫又是连续退化资源。派工与工艺控制不能分开算。
+
+    **工艺：** 旋转的研磨垫压着晶圆、配合浆料，把表面凸起磨掉，给下一层光刻留一个全局平坦的表面。
+
+    <span class="badge badge--done">1.0</span>
+
+    [:octicons-arrow-right-24: 进入分幅](../cmp/index.md)<br>
+    [:octicons-arrow-right-24: 工艺基础](../basics/index.md#cmp)
+
+-   :material-water:{ .lg .middle } __Clean / Wet 清洗__
+
+    ---
+
+    **派工角色：走廊起点，也是最大的不确定性。** 药液槽和研磨垫一样会连续退化；清洗出槽那一刻，晶圆表面从"受控"变成"暴露"，全厂大部分 Q-time 从这儿开始计时。
+
+    **工艺：** 用酸碱药液、超纯水、有机溶剂去掉颗粒、金属离子、有机残留和自然氧化层。几乎每道关键工序前后都要洗一次。
+
+    <span class="badge badge--wip">0.1</span>
+
+    [:octicons-arrow-right-24: 进入分幅](../clean/index.md)<br>
+    [:octicons-arrow-right-24: 工艺基础](../basics/index.md#clean)
+
+-   :material-ruler-square:{ .lg .middle } __Metrology 量测__
+
+    ---
+
+    **派工角色：两个身份。** 既是占产能的消费者，又是给别人供数据的生产者——CMP 等着它的结果才能定下一批参数。同一台机不同 recipe 时长能差 30 倍。
+
+    **工艺：** 测膜厚、线宽、套刻精度、缺陷密度。不改变晶圆，只读取状态。
+
+    <span class="badge badge--wip">0.1</span>
+
+    [:octicons-arrow-right-24: 进入分幅](../metrology/index.md)<br>
+    [:octicons-arrow-right-24: 工艺基础](../basics/index.md#metrology)
+
+-   :material-swap-horizontal-bold:{ .lg .middle } __Sorter / Stocker__
+
+    ---
+
+    **派工角色：唯一按载具决策的区。** FOUP 数量有限且独占，载具不够机台再空也上不了料。这种假性 idle 在报表上会被误判成设备问题。
+
+    **工艺：** 换载具、合批拆批、暂存。不加工晶圆，只改变"哪片在哪个载具里、载具在哪个位置"。
+
+    <span class="badge badge--wip">0.1</span>
+
+    [:octicons-arrow-right-24: 进入分幅](../sorter/index.md)<br>
+    [:octicons-arrow-right-24: 工艺基础](../basics/index.md#sorter)
+
+</div>

@@ -35,7 +35,7 @@ title: G1 优先级与排序
 
 ## 瓶颈识别与漂移
 
-瓶颈不是设计产能最低的区，是**实际负荷最高的区**。判定方法见 [瓶颈判定](../overview/bottleneck.md)，这里只讲规则怎么配。
+瓶颈不是设计产能最低的区，是**实际负荷最高的区**。判定方法见 [瓶颈判定](../zones/bottleneck.md)，这里只讲规则怎么配。
 
 | 字段 | 说明 |
 |---|---|
@@ -159,4 +159,4 @@ priority_score = base_priority
 
 ---
 
-相关：[通用层总览](index.md) · [瓶颈判定](../overview/bottleneck.md) · [指标体系](../method/metrics.md)
+相关：[通用层总览](index.md) · [瓶颈判定](../zones/bottleneck.md) · [指标体系](../method/metrics.md)

@@ -155,4 +155,4 @@ P4  常规排序       setup 最小化 / WIP 平衡 / 老化升权
 
 ---
 
-相关：[规则库设计](../method/rule-library.md) · [区域对比](../zones/index.md) · [Q-time 走廊专题](../topics/qtime-corridor.md)
+相关：[规则库设计](../method/rule-library.md) · [区域总览](../zones/index.md) · [Q-time 走廊专题](../topics/qtime-corridor.md)

@@ -227,4 +227,4 @@ Diffusion 的 PM / clean 往往不是短暂停机，而是改变一段时间内�
 
 ---
 
-相关：[Q-time 走廊](../topics/qtime-corridor.md) · [辅助资源流转](../topics/support-resource.md) · [瓶颈判定](../overview/bottleneck.md)
+相关：[Q-time 走廊](../topics/qtime-corridor.md) · [辅助资源流转](../topics/support-resource.md) · [瓶颈判定](../zones/bottleneck.md)

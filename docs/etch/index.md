@@ -219,4 +219,4 @@ Etch 的利用率要看 chamber，不要只看 tool。Tool 利用率漂亮，cha
 
 ---
 
-相关：[Q-time 走廊](../topics/qtime-corridor.md) · [辅助资源流转](../topics/support-resource.md) · [区域对比](../zones/index.md)
+相关：[Q-time 走廊](../topics/qtime-corridor.md) · [辅助资源流转](../topics/support-resource.md) · [区域总览](../zones/index.md)

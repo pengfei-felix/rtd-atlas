@@ -75,12 +75,9 @@ plugins:
 
 nav:
   - 首页: index.md
-  - 总图:
-      - 全厂派工全景: overview/index.md
-      - 瓶颈判定: overview/bottleneck.md
   - 区域分幅:
-      - 区域对比: zones/index.md
-      - 工艺基础: zones/process-basics.md
+      - 区域总览: zones/index.md
+      - 瓶颈判定: zones/bottleneck.md
       - Litho 光刻:
           - litho/index.md
           - 核心结论速览: litho/00-结论速览.md
@@ -127,6 +124,7 @@ nav:
       - Sorter / Stocker:
           - sorter/index.md
           - 载具池与污染分区: sorter/01-载具池与污染分区.md
+  - 工艺基础: basics/index.md
   - 通用规则:
       - 通用层总览: common/index.md
       - G1 优先级与排序: common/01-priority.md

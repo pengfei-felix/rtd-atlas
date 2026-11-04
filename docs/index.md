@@ -66,13 +66,13 @@ title: 首页
 | [Sorter / Stocker](sorter/index.md) | `Carrier → Slot` | 载具池、污染分区 |
 
 [九区速查](zones/index.md){ .md-button }
-[工艺基础](zones/process-basics.md){ .md-button }
+[工艺基础](basics/index.md){ .md-button }
 
 ## 怎么读
 
-- **先建立地图感** → [全厂派工全景](overview/index.md)，再看 [Litho 核心结论速览](litho/00-结论速览.md)（六条结论）
+- **先建立地图感** → [区域总览](zones/index.md)，再看 [Litho 核心结论速览](litho/00-结论速览.md)（六条结论）
 - **要建模型** → [约束模型](method/constraints.md) → [数据模型](method/data-model.md) → [规则库设计](method/rule-library.md)
-- **要落地一个区** → [瓶颈判定](overview/bottleneck.md) → [Litho 落地路线图](litho/06-落地路线图.md) → [避坑清单](litho/08-避坑清单.md)
+- **要落地一个区** → [瓶颈判定](zones/bottleneck.md) → [Litho 落地路线图](litho/06-落地路线图.md) → [避坑清单](litho/08-避坑清单.md)
 - **遇到具体问题** → [症状诊断手册](method/symptom-playbook.md)：[Q-time 超时](topics/qtime-corridor.md) · [机台空转](topics/support-resource.md) · [频繁改派](common/04-stability.md) · [指标打架](topics/metric-conflict.md)
 
 其余：[跨幅专题](topics/index.md) · [约束四类](legend/constraint-types.md) · [方法论](method/index.md) · [样例](examples/index.md) · [术语表](legend/glossary.md)

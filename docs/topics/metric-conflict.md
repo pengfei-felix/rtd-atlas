@@ -171,4 +171,4 @@ RTD 项目最推荐：**历史回放 → 影子模式 → 小范围接管 → �
 
 ---
 
-相关：[指标体系](../method/metrics.md) · [瓶颈判定](../overview/bottleneck.md) · [Q-time 走廊](qtime-corridor.md)
+相关：[指标体系](../method/metrics.md) · [瓶颈判定](../zones/bottleneck.md) · [Q-time 走廊](qtime-corridor.md)
