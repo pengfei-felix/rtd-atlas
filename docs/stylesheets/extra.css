@@ -261,6 +261,72 @@
   }
 }
 
+/* --- 区域流传图：单层循环 + 回流线 ---------------------------------- */
+.flowloop {
+  margin: 1.2rem 0 0.9rem;
+}
+
+.flowloop .flowline {
+  margin: 0;
+}
+
+.flowloop .flow-step {
+  padding: 0.62rem 0.35rem;
+}
+
+.flow-step .zf-meta {
+  display: block;
+  margin-top: 0.14rem;
+  font-size: 0.56rem;
+  font-weight: 400;
+  white-space: nowrap;
+  color: var(--md-default-fg-color--light);
+}
+
+.flowloop-return {
+  padding: 0.36rem 0.6rem 0.44rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-top: 0;
+  border-radius: 0 0 0.55rem 0.55rem;
+  font-size: 0.62rem;
+  color: var(--md-default-fg-color--light);
+  text-align: center;
+}
+
+@media screen and (max-width: 52em) {
+  .flowloop .flow-arrow {
+    display: none;
+  }
+
+  .flowloop .flow-step {
+    padding: 0.45rem 0.7rem;
+    text-align: left;
+  }
+
+  .flowloop .flow-step .zf-meta {
+    display: inline;
+    margin: 0 0 0 0.5rem;
+  }
+
+  .flowloop-return {
+    margin-top: 0.45rem;
+    border-top: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.55rem;
+  }
+}
+
+/* --- 区域角色卡：位置标签 -------------------------------------------- */
+.zf-tag {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  padding: 0.04rem 0.45rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 1rem;
+  font-size: 0.6rem;
+  color: var(--md-default-fg-color--light);
+  letter-spacing: 0.02em;
+}
+
 /* --- 时间线：Q-time 走廊用 ------------------------------------------- */
 .timeline {
   display: flex;

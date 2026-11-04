@@ -65,7 +65,7 @@ title: 首页
 | [Metrology 量测](metrology/index.md) | `Lot → Tool` | 采样规则、recipe 时长陷阱（缺陷检测归此区） |
 | [Sorter / Stocker](sorter/index.md) | `Carrier → Slot` | 载具池、污染分区 |
 
-[九区速查](zones/index.md){ .md-button }
+[区域总览](zones/index.md){ .md-button }
 [工艺基础](basics/index.md){ .md-button }
 
 ## 怎么读
